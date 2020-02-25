@@ -10,12 +10,12 @@ class General:
     def __init__(self,lat,long): # Takes in Lat and Long and then finds the data on the internet with an API call.
         self.lat = lat
         self.long = long
-        self.get_weather_data() # Weather data for each instance are stored in a parent class where a few other variables are stored
+        self.get_weather_data() # Weather data for each instance are stored in a parent class where a few other variables are stored.
         self.unique_dates()
         self.times()
         self.data()
 
-    def times(self): # Creates a list of all the times eg.1582275600
+    def times(self): # Creates a list of all the times eg.1582275600.
         time_list = []
         for i in self.weather_data['list']:
             time = i['dt']
@@ -37,7 +37,7 @@ class General:
             with open('weather_data.json', 'r') as f:
                 self.weather_data = json.load(f)
 
-    def unique_dates(self): # Creates a list of all the unique dates. Used for printing out the data eg. Monday 23rd Feburary
+    def unique_dates(self): # Creates a list of all the unique dates. Used for printing out the data eg. Monday 23rd Feburary.
         list =[]
         for i in self.weather_data['list']:
             x = datetime.datetime.utcfromtimestamp(i['dt']).strftime('%d %A %B')
@@ -45,7 +45,7 @@ class General:
                 list.append(x)
                 self.dates = list
 
-    def data(self): # Automatically creates a list of all the objects created using the time eg.1582275600
+    def data(self): # Automatically creates a list of all the objects created using the time eg.1582275600.
         list_of_obj = []
         for i in self.time_list:
             o = Weather(i,self)
