@@ -2,11 +2,12 @@ import json, requests, datetime
 lat = '52.2444132'
 long = '0.7687717'
 
+
 class General:
 
-    api_key = '5fab7e900289e050f6ad161e8cee3dde' # This is my unique API key I use to call data. Maximum 60 calls per minute
+    api_key = '5fab7e900289e050f6ad161e8cee3dde' # This is my unique API key I use to call data. Maximum 60 calls per minute.
 
-    def __init__(self,lat,long): # Takes in Lat and Long and then finds the data on the internet with an API call
+    def __init__(self,lat,long): # Takes in Lat and Long and then finds the data on the internet with an API call.
         self.lat = lat
         self.long = long
         self.get_weather_data() # Weather data for each instance are stored in a parent class where a few other variables are stored
